@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+        <![endif]-->
+
+    <script src="Math.uuid.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+    <script src="http://remotestoragejs.com/build/0.7.0-head/remoteStorage-modules-debug.js"></script>
+ 
+  </head>
+ 
+  <body>
+    <div id="remotestorage-connect"></div>
+    <div id="myMap" style="height:400px;width:500"></div>
+    <div id="aNote" style="display:none;position:absolute;">
+      <table>
+        <td>
+          <textarea class="text" style="height:50"> example text</textarea>  
+        </td>
+        <td>
+          <button class="save"> Save </button> <br>
+          <button class="abort" onClick=hideField()> Abort </button>
+        </td>
+      </tableau>
+    </div>
+    <script src="smarkers.js"></script>
+  </body>
+</html>
