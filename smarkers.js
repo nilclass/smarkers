@@ -1,7 +1,7 @@
 window.onload = function () {
   remoteStorage.defineModule("markers", function(privateClient, publicClient) {
 
-    privateClient.sync('');
+    privateClient.use('');
 
     return {
       exports: {
@@ -24,6 +24,10 @@ window.onload = function () {
     }
 
   })
+
+  remoteStorage.onWidget('state', function(state) {
+    // alert("state now: " + state);
+  });
 
   remoteStorage.claimAccess("markers","rw");
   remoteStorage.displayWidget("remotestorage-connect");
