@@ -43,6 +43,7 @@ window.onload = function () {
               { attribution: 'Map data',
                 maxZoom: 18
               }).addTo(map);
+
   function onMapClick(e) {
     var note_window = document.getElementById("aNote");
     note_window.style.left  = e.originalEvent.x+"px";
@@ -64,14 +65,13 @@ window.onload = function () {
       
     }
   }
-  
-  function hideField(){
+
+  function hideField() {
     var note_window = document.getElementById("aNote");
     var input = note_window.getElementsByClassName('text')[0];        
     note_window.style.display = "none";
     input.value = ""; 
   }
-
   
   function displayMarker(marker) {
     L.marker(marker.latlng)
@@ -95,6 +95,8 @@ window.onload = function () {
   function setMarkers(list){
     list.forEach(displayMarker)
   }
+
+  document.getElementById('cancel').addEventListener('click', hideField);
   
   map.on('click', onMapClick);
   setMarkers(loadMarkers());
