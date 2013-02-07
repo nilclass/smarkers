@@ -1,30 +1,65 @@
 <html>
   <head>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/leaflet.css" />
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
-        <![endif]-->
-
-    <script src="Math.uuid.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
-    <script src="http://remotestoragejs.com/build/0.7.0-head/remoteStorage-modules-debug.js"></script>
- 
+        <link rel="stylesheet" href="css/leaflet.ie.css" />
+    <![endif]-->
   </head>
- 
+  
   <body>
-    <div id="remotestorage-connect"></div>
+
+    <div id="disconnected">
+      Connect your remotestorage to browse your collections.
+    </div>
+
+    <div id="connected" style="display:none">
+      <label>
+        Collection:
+        <select id="collection-select">
+          <option></option>
+        </select>
+      </label>
+
+      <button id="remove-collection" disabled="disabled">Remove</button>
+
+      <br/>
+
+      <button id="add-collection">New Collection</button>
+
+      <form id="collection-form" style="display:none">
+        <input type="button" name="cancel" value="Cancel">
+        <label>
+          Name:
+          <input name="name" type="text">
+        </label>
+        <input type="submit" name="submit" value="Create">
+      </form>
+
+    </div>
+
     <div id="myMap" style="height:400px;width:500"></div>
-    <div id="aNote" style="display:none;position:absolute;">
+    <em>Click anywhere on the map to add a marker</em>
+    <form id="aNote" style="display:none;position:absolute;">
       <table>
         <td>
-          <textarea class="text" style="height:50"> example text</textarea>  
+          <input name="title" placeholder="title">
         </td>
         <td>
-          <button class="save"> Save </button> <br>
-          <button id="cancel"> Cancel </button>
+          <textarea placeholder="description" name="description" class="text" style="height:50"></textarea>  
+        </td>
+        <td>
+          <input type="submit" class="save" value="Save"><br>
+          <input type="button" name="cancel" id="cancel" value="Cancel">
         </td>
       </tableau>
-    </div>
+    </form>
+
+    <script src="lib/Math.uuid.js"></script>
+    <script src="lib/leaflet.js"></script>
+    <script src="lib/remoteStorage.min.js"></script>
+    <script src="remoteStorage-locations.js"></script>
+
     <script src="smarkers.js"></script>
   </body>
 </html>
