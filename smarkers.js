@@ -136,8 +136,8 @@
 
   function onMapClick(e) {
     var note_window = document.getElementById("aNote");
-    note_window.style.left  = e.originalEvent.x+"px";
-    note_window.style.top  = e.originalEvent.y+"px";
+    note_window.style.left  = e.originalEvent.pageX+"px";
+    note_window.style.top  = e.originalEvent.pageY+"px";
     note_window.style.display = "block"; 
     markerCoordinates = [e.latlng.lng, e.latlng.lat];
   }
@@ -176,6 +176,9 @@
         then(displayFeature);
     });
     note_window.cancel.addEventListener('click', hideField);
+
+    // go somewhere
+    map.setView([52.4694, 13.31543], 5);
 
     // check if geolocation API is supported
     if('geolocation' in navigator) {
